@@ -11,3 +11,5 @@ This setup requires VirtualBox for the Hypervisor, though of course Vagrant itse
 3. Vagrant DNS Plugin: `vagrant plugin install vagrant-dns`
 ### Configure
 Edit the Vagrantfile's `synced_folder` setting to point to your project(s) directory.
+### Running
+From a terminal run `vagrant up`. After the VM is finishing provisioning, you can verify that that the system is up by opening the [Traefik Web Console](http://localhost:8080/dashboard/#/)
