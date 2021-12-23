@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/474507/147181448-0e803fbe-325b-46ec-92fc-9835798d0f4b.png)
+
 # Docker Desktop Mac Alternative
 This project is meant to be a free alternative to the MacOS Docker Desktop product. Instead of docker, Podman for managing containers and Traefik for proxying connections.
 
