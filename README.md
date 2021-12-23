@@ -1,6 +1,5 @@
 # Docker Desktop Mac Alternative
-Since the licensing of Docker Desktop Mac has changed recently, there has been some interest in possible alternatives. Below is a possible list of alternatives.
-The replacements are biased for my use cases: docker compse for basic prototype work and Kubernetes for prodution work.
+This project is meant to be a free alternative to the MacOS Docker Desktop product. Instead of docker, this project uses Podman for managing containers and Traefik for proxying connections.
 
 ## How To Use My Setup
 ### What to Install
