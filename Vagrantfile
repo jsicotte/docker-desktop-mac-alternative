@@ -5,6 +5,12 @@ sudo apt install -y git
 sudo apt install -y podman
 SCRIPT
 
+$configure_daemon = <<-SCRIPT
+systemctl --user enable podman.socket
+systemctl --user daemon-reload
+systemctl --user start podman.socket
+SCRIPT
+
 Vagrant.configure("2") do |config|
     config.vm.box = "debian/bullseye64"
     config.vm.provision "shell", inline: $install
@@ -16,6 +22,11 @@ Vagrant.configure("2") do |config|
     config.vm.network :private_network, ip: "192.168.56.10"
     config.dns.patterns = [/^(\w+\.)*mysite\.test$/]
 
+    config.vm.provision "file", source: "registries.conf", destination: "/home/vagrant/registries.conf"
+    config.vm.provision "shell", inline: "mv /home/vagrant/registries.conf /etc/containers/registries.conf"
+
+    config.vm.provision "shell", privileged: false,  inline: $configure_daemon
+    config.vm.provision "shell", inline: 'loginctl enable-linger vagrant'
     config.vm.provision "podman" do |d|
         d.run "traefik:v2.5",
           cmd: "traefik --api.insecure=true --providers.docker",
