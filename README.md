@@ -13,3 +13,12 @@ This setup requires VirtualBox for the Hypervisor, though of course Vagrant itse
 Edit the Vagrantfile's `synced_folder` setting to point to your project(s) directory.
 ### Running
 From a terminal run `vagrant up`. After the VM is finishing provisioning, you can verify that that the system is up by opening the [Traefik Web Console](http://localhost:8080/dashboard/#/)
+
+### Guest Podman
+The easiest option for running podman and podman compose commands is to shell into the Vagrant guest: `vagrant ssh`. For example:
+```
+podman run -it ubuntu bash
+root@29b479e2a328:/#
+```
+
+### Podman Remote
