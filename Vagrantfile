@@ -11,10 +11,12 @@ systemctl --user daemon-reload
 systemctl --user start podman.socket
 SCRIPT
 
+home_dir = ENV['HOME']
+
 Vagrant.configure("2") do |config|
     config.vm.box = "debian/bullseye64"
     config.vm.provision "shell", inline: $install
-    config.vm.synced_folder "/Users/jsicotte/Documents/workspaces", "/workspaces"
+    config.vm.synced_folder home_dir, home_dir
     config.vm.network "forwarded_port", guest: 80, host: 80
     config.vm.network "forwarded_port", guest: 8080, host: 8080
     config.dns.tld = "test"
