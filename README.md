@@ -5,6 +5,8 @@ This project is meant to be a free alternative to the MacOS Docker Desktop produ
 ## Overview
 To provide a high level overview of how all this works see the following diagram:
 
+![image](https://user-images.githubusercontent.com/474507/147833711-92e70113-2fcb-4f3f-a1f5-0cd44c7ce7a5.png)
+
 The components that make up this setup are:
 * Vagrant for VM automation
 * Virtualbox for running the Linux VM (Debian in this case) and sharing $HOME
