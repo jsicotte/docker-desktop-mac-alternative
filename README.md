@@ -2,6 +2,22 @@
 
 # Docker Desktop Mac Alternative
 This project is meant to be a free alternative to the MacOS Docker Desktop product. Instead of docker, Podman for managing containers and Traefik for proxying connections.
+## Overview
+To provide a high level overview of how all this works see the following diagram:
+
+The components that make up this setup are:
+* Vagrant for VM automation
+* Virtualbox for running the Linux VM (Debian in this case) and sharing $HOME
+* Podman Daemon for container management. Associated with this service are two socket files:
+  *  /var/run/docker.sock: This file emulates the docker socket format. This is what allows Traefik to detect what containers are running since it is a "docker aware" proxy.
+  * /run/user/1000/podman/podman.sock: The native socket used by podman. This is what podman remote uses to communicate with the podman instance running inside the guest (through a ssh tunnel).
+
+## Current Issues
+### Networking
+This setup can mostly replace Docker Desktop except for the seamless netowrking. I am looking for a way around the issue, but for now if you want to connect to a container from the host OS these are your options:
+- SSH tunnel to the guest os
+- Manually open a port
+- Use the built in Traefik proxy. This option requies a small change to your docker compose yaml and that the application be configured to support running behind a reverse proxy.
 
 ## How To Use This Setup
 ### What to Install
@@ -18,6 +34,7 @@ The easiest option for running podman and podman compose commands is to shell in
 podman run -it ubuntu bash
 root@29b479e2a328:/#
 ```
+If you want to be able to run podman from the host os (like with docker desktop), then see the next section "Podman Remote".
 
 ### Podman Remote (Optional)
 You can run everything you need using `vagrant ssh`, though it would be nice to run podman in a host shell just like with Docker Desktop. To emulate this functionality, we can use podman's
