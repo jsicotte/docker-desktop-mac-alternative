@@ -9,8 +9,10 @@ The components that make up this setup are:
 * Vagrant for VM automation
 * Virtualbox for running the Linux VM (Debian in this case) and sharing $HOME
 * Podman Daemon for container management. Associated with this service are two socket files:
-  *  /var/run/docker.sock: This file emulates the docker socket format. This is what allows Traefik to detect what containers are running since it is a "docker aware" proxy.
-  * /run/user/1000/podman/podman.sock: The native socket used by podman. This is what podman remote uses to communicate with the podman instance running inside the guest (through a ssh tunnel).
+  *  `/var/run/docker.sock`: This file emulates the docker socket format. This is what allows Traefik to detect what containers are running since it is a "docker aware" proxy.
+  * `/run/user/1000/podman/podman.sock`: The native socket used by podman. This is what podman remote uses to communicate with the podman instance running inside the guest (through a ssh tunnel).
+* Traefik for detecting what containers are running with a port open and exposing them using a reverse proxy.
+* Podman Remote: this runs in MacOS and communicates with a daemon running in the guest by a socket.
 
 ## Current Issues
 ### Networking
