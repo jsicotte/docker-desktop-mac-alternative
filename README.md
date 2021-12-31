@@ -5,7 +5,7 @@ This project is meant to be a free alternative to the MacOS Docker Desktop produ
 
 ## How To Use This Setup
 ### What to Install
-This setup requires VirtualBox for the Hypervisor, though of course Vagrant itself does support VMWare Fusion. Due to the lack of boxes for Fusion, I decided to go with VirtualBox.
+This setup requires VirtualBox for the Hypervisor. This was due to the lack of boxes for VMWare Fusion. To get started, install the following:
 1. [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. [Vagrant](https://www.vagrantup.com/downloads)
 3. Vagrant DNS Plugin: `vagrant plugin install vagrant-dns`
