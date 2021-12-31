@@ -5,7 +5,7 @@ This project is meant to be a free alternative to the MacOS Docker Desktop produ
 ## Overview
 To provide a high level overview of how all this works see the following diagram:
 
-![image](https://user-images.githubusercontent.com/474507/147833711-92e70113-2fcb-4f3f-a1f5-0cd44c7ce7a5.png)
+![image](https://user-images.githubusercontent.com/474507/147833734-1ade857a-17e9-47ae-bed8-3caa6c31e5e1.png)
 
 The components that make up this setup are:
 * Vagrant for VM automation
